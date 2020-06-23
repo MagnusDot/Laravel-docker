@@ -1,0 +1,32 @@
+version: '3.3'
+services:
+  php:
+    container_name: Laravel-php
+    build: docker/php
+    volumes:
+      - './:/usr/share/nginx/html:consistent'
+    depends_on:
+      - db
+  nginx:
+    container_name: Laravel-nginx
+    build: docker/nginx
+    ports:
+      - '8000:80'
+    volumes:
+      - './:/usr/share/nginx/html:consistent'
+    depends_on:
+      - php
+  db:
+    container_name: Laravel-postgres
+    image: 'postgres:12-alpine'
+    volumes:
+      - 'db-data:/var/lib/postgresql/data:consistent'
+    ports:
+      - '5432:5432'
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_DB=lygee_cms
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+volumes:
+  db-data: {}
