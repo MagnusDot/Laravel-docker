@@ -15,5 +15,6 @@ RUN apt-get clean
 RUN pecl install apcu
 RUN docker-php-ext-enable apcu
 RUN docker-php-ext-install intl opcache
-RUN mkdir -p /usr/share/nginx/html/public/upload && chmod -R 747 /usr/share/nginx/html/public/upload
+RUN mkdir -p /usr/share/nginx/html/public/upload && chmod -R 777 /usr/share/nginx/html/
 WORKDIR /usr/share/nginx/html
+RUN chmod -R 777 .
