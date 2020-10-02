@@ -5,3 +5,7 @@
 </p>
 
 ## About LARAVEL DOCKER
+This project is used to quickly develop applications with Docker and laravel, the whole project is configured and ready to create your project under laravel!
+
+## Version 
+The latest version of laravel on this project is ```8.0```
