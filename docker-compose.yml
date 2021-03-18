@@ -28,5 +28,15 @@ services:
       - POSTGRES_DB=lygee_cms
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
+
+  blackfire:
+    image: blackfire/blackfire
+    ports: [ "8707" ]
+    environment:
+      # Exposes BLACKFIRE_* environment variables from the host
+      BLACKFIRE_SERVER_ID: 0eac118d-2aba-4cc0-a7ae-0d4e85c107f7
+      BLACKFIRE_SERVER_TOKEN: fc12c3ff0bb56f6fffc9d2496a54059fcf982f44df107d62b32ebc00124c087c
+      BLACKFIRE_CLIENT_ID: cf4150da-a6c8-43d8-882e-99aea51d759d
+      BLACKFIRE_CLIENT_TOKEN: 7d75d175ca7cd1624597f44fb576ee13d31a9e29841588518bf40383982d2f9f
 volumes:
   db-data: {}
